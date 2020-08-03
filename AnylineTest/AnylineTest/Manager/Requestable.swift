@@ -31,7 +31,7 @@ extension Requestable {
         
         request.httpMethod = method.rawValue
         
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 
         ServiceManager.shared.request(request: request, completion: completion)
     }
