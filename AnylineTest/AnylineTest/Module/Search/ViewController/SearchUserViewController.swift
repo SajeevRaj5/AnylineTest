@@ -11,16 +11,22 @@ import UIKit
 class SearchUserViewController: UIViewController {
     
     var pageIndex = 1
+    var searchText = ""
+    
     var users = [User]()
 
     @IBOutlet weak var usersTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    func getUser(text: String) {
-        User.search(text: text, page: pageIndex) { (response) in
+
+    func getUser(text: String, index: Int = 1) {
+        User.search(text: text, page: pageIndex) { [weak self] (response) in
             switch response {
             case .success(let data):
-                print(data)
+                self?.users += data.items
+                DispatchQueue.main.async {
+                    self?.usersTableView.reloadData()
+                }
             case .failure(let error):
                 print(error)
             case .finally:
@@ -38,6 +44,12 @@ extension SearchUserViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let userCell = UserViewCell.dequeue(tableView, at: indexPath) else { return UITableViewCell() }
         userCell.user = users[indexPath.row]
+        
+        if indexPath.row == users.count - 1 {
+            pageIndex += 1
+            getUser(text: searchText, index: pageIndex)
+        }
+        
         return userCell
     }
     
@@ -49,6 +61,9 @@ extension SearchUserViewController: UITableViewDelegate {
 
 extension SearchUserViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        getUser(text: searchBar.searchTextField.text!)
+        searchText = searchBar.searchTextField.text ?? ""
+
+        getUser(text: searchText)
+        searchBar.searchTextField.resignFirstResponder()
     }
 }
