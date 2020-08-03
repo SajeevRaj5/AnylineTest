@@ -30,6 +30,23 @@ class SearchUserViewController: UIViewController {
     }
 }
 
+extension SearchUserViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return users.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let userCell = UserViewCell.dequeue(tableView, at: indexPath) else { return UITableViewCell() }
+        userCell.user = users[indexPath.row]
+        return userCell
+    }
+    
+}
+
+extension SearchUserViewController: UITableViewDelegate {
+    
+}
+
 extension SearchUserViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         getUser(text: searchBar.searchTextField.text!)
