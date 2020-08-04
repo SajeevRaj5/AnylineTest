@@ -29,7 +29,7 @@ class UserViewCell: UITableViewCell {
     }
 
     func configureView() {
-        userNameLabel?.text = user?.name
+        userNameLabel?.text = user?.username
         scoreLabel?.text = "Score: \(user?.score ?? 0)"
         user?.imageUrl?.image(completion: { [weak self] (image, data) in
             DispatchQueue.main.async {

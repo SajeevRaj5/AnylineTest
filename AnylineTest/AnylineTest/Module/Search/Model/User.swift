@@ -9,44 +9,22 @@
 import Foundation
 
 class User: Codable {
-    var name: String
+    var username: String
     var score: Int
     var imageUrl: URL?
-    var reposUrl: URL?
-    var followersUrl: URL?
-    var subscriptionsUrl: URL?
-    var organizationsUrl: URL?
-    var eventsUrl: URL?
     
     enum CodingKeys: String, CodingKey {
-        case name = "login"
+        case username = "login"
         case score = "score"
         case imageUrl = "avatar_url"
-        case followersUrl = "followers_url"
-        case subscriptionsUrl = "subscriptions_url"
-        case reposUrl = "repos_url"
-        case eventsUrl = "events_url"
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        name = try container.decode(String.self, forKey: .name)
+        username = try container.decode(String.self, forKey: .username)
         score = try container.decode(Int.self, forKey: .score)
         let imageUrl = try container.decode(String.self, forKey: .imageUrl)
         self.imageUrl = URL(string: imageUrl)
-        
-        let reposUrl = try container.decode(String.self, forKey: .reposUrl)
-        self.reposUrl = URL(string: reposUrl)
-        
-        let followersUrl = try container.decode(String.self, forKey: .followersUrl)
-        self.followersUrl = URL(string: followersUrl)
-        
-        let subscriptionsUrl = try container.decode(String.self, forKey: .subscriptionsUrl)
-        self.subscriptionsUrl = URL(string: subscriptionsUrl)
-        
-        let eventsUrl = try container.decode(String.self, forKey: .eventsUrl)
-         self.eventsUrl = URL(string: eventsUrl)
-    
     }
     
     static func search(text: String,page: Int, completion: @escaping (ServiceResponse<UserSearchResponse>) -> ()) {
