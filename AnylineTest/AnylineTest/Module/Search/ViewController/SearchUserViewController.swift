@@ -58,7 +58,7 @@ extension SearchUserViewController: UITableViewDataSource {
 extension SearchUserViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailsView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: UserDetailViewController.identifier) as? UserDetailViewController else { return }
-        detailsView.user = users[indexPath.row]
+        detailsView.username = users[indexPath.row].username
         present(detailsView, animated: true, completion: nil)
     }
 

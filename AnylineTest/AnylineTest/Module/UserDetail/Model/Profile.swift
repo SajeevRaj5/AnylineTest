@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct Profile: Codable {
+class Profile: Codable {
     var username: String
     var name: String
-    var imageUrl: URL
-    var profileUrl: URL
-    var followers: String
-    var followings: String
+    var imageUrl: URL?
+    var profileUrl: URL?
+    var followers: Int
+    var followings: Int
     var location: String
     
     enum CodingKeys: String, CodingKey {
@@ -25,6 +25,25 @@ struct Profile: Codable {
         case followings = "following"
         case location = "location"
         case profileUrl = "html_url"
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        username = try container.decode(String.self, forKey: .username)
+        name = try container.decode(String.self, forKey: .name)
+        let imageUrl = try container.decode(String.self, forKey: .imageUrl)
+        self.imageUrl = URL(string: imageUrl)
+        let profileUrl = try container.decode(String.self, forKey: .profileUrl)
+        self.profileUrl = URL(string: profileUrl)
+        followers = try container.decode(Int.self, forKey: .followers)
+        followings = try container.decode(Int.self, forKey: .followings)
+        location = try container.decode(String.self, forKey: .location)
+    }
+    
+    static func getDetails(username: String, completion: @escaping (ServiceResponse<Profile>) -> ()) {
+        Router.details(username: username).request { (response) in
+            completion(response)
+        }
     }
 }
 
