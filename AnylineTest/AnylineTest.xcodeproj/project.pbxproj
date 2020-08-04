@@ -23,6 +23,7 @@
 		137DB41E24D8ADBF00684567 /* ResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB41D24D8ADBF00684567 /* ResponderExtension.swift */; };
 		137DB42024D8AEF600684567 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB41F24D8AEF600684567 /* URLExtension.swift */; };
 		137DB42324D8D86F00684567 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB42224D8D86F00684567 /* UserDetailViewController.swift */; };
+		137DB42724D95CA700684567 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB42624D95CA700684567 /* Profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		137DB41D24D8ADBF00684567 /* ResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderExtension.swift; sourceTree = "<group>"; };
 		137DB41F24D8AEF600684567 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		137DB42224D8D86F00684567 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		137DB42624D95CA700684567 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 		137DB42124D8D85500684567 /* UserDetail */ = {
 			isa = PBXGroup;
 			children = (
+				137DB42524D95AF800684567 /* Model */,
 				137DB42424D8D87200684567 /* ViewController */,
 			);
 			path = UserDetail;
@@ -175,6 +178,14 @@
 				137DB42224D8D86F00684567 /* UserDetailViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		137DB42524D95AF800684567 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				137DB42624D95CA700684567 /* Profile.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +262,7 @@
 				137DB40E24D899B300684567 /* Configuration.swift in Sources */,
 				137DB40B24D8994600684567 /* Requestable.swift in Sources */,
 				137DB42324D8D86F00684567 /* UserDetailViewController.swift in Sources */,
+				137DB42724D95CA700684567 /* Profile.swift in Sources */,
 				137DB3F024D8979600684567 /* ViewController.swift in Sources */,
 				137DB3EC24D8979600684567 /* AppDelegate.swift in Sources */,
 				137DB41E24D8ADBF00684567 /* ResponderExtension.swift in Sources */,
