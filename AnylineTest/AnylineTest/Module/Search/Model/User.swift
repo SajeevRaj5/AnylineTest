@@ -25,6 +25,7 @@ class User: Codable {
         case followersUrl = "followers_url"
         case subscriptionsUrl = "subscriptions_url"
         case reposUrl = "repos_url"
+        case eventsUrl = "events_url"
     }
     
     required init(from decoder: Decoder) throws {
@@ -42,6 +43,9 @@ class User: Codable {
         
         let subscriptionsUrl = try container.decode(String.self, forKey: .subscriptionsUrl)
         self.subscriptionsUrl = URL(string: subscriptionsUrl)
+        
+        let eventsUrl = try container.decode(String.self, forKey: .eventsUrl)
+         self.eventsUrl = URL(string: eventsUrl)
     
     }
     
