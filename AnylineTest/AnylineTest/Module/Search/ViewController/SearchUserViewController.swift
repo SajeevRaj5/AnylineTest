@@ -18,6 +18,11 @@ class SearchUserViewController: UIViewController {
     @IBOutlet weak var usersTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Search Users"
+    }
 
     func getUser(text: String, index: Int = 1) {
         User.search(text: text, page: pageIndex) { [weak self] (response) in
@@ -25,7 +30,7 @@ class SearchUserViewController: UIViewController {
             case .success(let data):
                 self?.users += data.items
                 DispatchQueue.main.async {
-                    self?.usersTableView.reloadData()
+                    self?.reloadList()
                 }
             case .failure(let error):
                 print(error)
@@ -33,6 +38,11 @@ class SearchUserViewController: UIViewController {
                 print("finish")
             }
         }
+    }
+    
+    func reloadList() {
+        usersTableView.reloadData()
+        usersTableView.animateCells(direction: .bottom)
     }
 }
 
@@ -45,7 +55,7 @@ extension SearchUserViewController: UITableViewDataSource {
         guard let userCell = UserViewCell.dequeue(tableView, at: indexPath) else { return UITableViewCell() }
         userCell.user = users[indexPath.row]
         
-        if indexPath.row == users.count - 1 {
+        if indexPath.row == users.count - 2 {
             pageIndex += 1
             getUser(text: searchText, index: pageIndex)
         }

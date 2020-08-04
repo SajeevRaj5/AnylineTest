@@ -16,6 +16,7 @@ class UserViewCell: UITableViewCell {
         }
     }
 
+    @IBOutlet weak var baseView: View?
     @IBOutlet weak var scoreLabel: UILabel?
     @IBOutlet weak var userNameLabel: UILabel?
     @IBOutlet weak var avatarImageView: UIImageView?
@@ -23,6 +24,7 @@ class UserViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        baseView?.dropShadow(color: .darkGray, opacity: 0.7, offSet: CGSize(width: -5, height: 5), radius: 5, scale: true)
         avatarImageView?.clipsToBounds = true
         avatarImageView?.layer.cornerRadius = (avatarImageView?.bounds.width ?? 0)/2
         configureView()

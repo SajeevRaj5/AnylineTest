@@ -38,6 +38,8 @@ class UserDetailViewController: UIViewController {
                 self?.avatarImageView?.image = image
             }
         })
+        
+        view.animateAllSubViews(direction: .left)
     }
     
     func getProfileDetails(username: String) {
