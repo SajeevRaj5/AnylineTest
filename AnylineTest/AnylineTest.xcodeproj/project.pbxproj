@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		133C654724D97CAA00BF456E /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133C654624D97CAA00BF456E /* TableViewExtension.swift */; };
+		133C654924D98E5600BF456E /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133C654824D98E5600BF456E /* ActivityIndicator.swift */; };
 		137DB3EC24D8979600684567 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB3EB24D8979600684567 /* AppDelegate.swift */; };
 		137DB3EE24D8979600684567 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB3ED24D8979600684567 /* SceneDelegate.swift */; };
 		137DB3F024D8979600684567 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DB3EF24D8979600684567 /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		133C654624D97CAA00BF456E /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
+		133C654824D98E5600BF456E /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		137DB3E824D8979500684567 /* AnylineTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnylineTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		137DB3EB24D8979600684567 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		137DB3ED24D8979600684567 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				137DB41F24D8AEF600684567 /* URLExtension.swift */,
 				137DB42824D978D400684567 /* View.swift */,
 				133C654624D97CAA00BF456E /* TableViewExtension.swift */,
+				133C654824D98E5600BF456E /* ActivityIndicator.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				137DB40924D8993B00684567 /* ServiceManager.swift in Sources */,
 				137DB41424D89B0200684567 /* User.swift in Sources */,
 				137DB41C24D8AD8500684567 /* CellExtension.swift in Sources */,
+				133C654924D98E5600BF456E /* ActivityIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class UserDetailViewController: UIViewController {
+class UserDetailViewController: UIViewController, ActivityIndicatorPresenter {
+    var activityIndicator = UIActivityIndicatorView()
 
     var username: String? {
         didSet {
@@ -43,6 +44,7 @@ class UserDetailViewController: UIViewController {
     }
     
     func getProfileDetails(username: String) {
+        showLoader()
         Profile.getDetails(username: username) { [weak self] (response) in
             switch response {
             case .success(let result):
@@ -53,7 +55,7 @@ class UserDetailViewController: UIViewController {
             case .failure(let error):
                 print(error)
             case .finally:
-                print("finish")
+                self?.hideLoader()
             }
         }
     }

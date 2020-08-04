@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SearchUserViewController: UIViewController {
+class SearchUserViewController: UIViewController, ActivityIndicatorPresenter {
+    var activityIndicator = UIActivityIndicatorView()
     
     var pageIndex = 1
     var searchText = ""
@@ -24,7 +25,9 @@ class SearchUserViewController: UIViewController {
         title = "Search Users"
     }
 
-    func getUser(text: String, index: Int = 1) {
+    // search users with text
+    func getUsers(text: String, index: Int = 1) {
+        showLoader()
         User.search(text: text, page: pageIndex) { [weak self] (response) in
             switch response {
             case .success(let data):
@@ -35,7 +38,7 @@ class SearchUserViewController: UIViewController {
             case .failure(let error):
                 print(error)
             case .finally:
-                print("finish")
+                self?.hideLoader()
             }
         }
     }
@@ -57,7 +60,7 @@ extension SearchUserViewController: UITableViewDataSource {
         
         if indexPath.row == users.count - 2 {
             pageIndex += 1
-            getUser(text: searchText, index: pageIndex)
+            getUsers(text: searchText, index: pageIndex)
         }
         
         return userCell
@@ -78,7 +81,7 @@ extension SearchUserViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchText = searchBar.searchTextField.text ?? ""
 
-        getUser(text: searchText)
+        getUsers(text: searchText)
         searchBar.searchTextField.resignFirstResponder()
     }
 }
