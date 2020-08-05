@@ -65,7 +65,7 @@ class SearchUserViewControllerTests: QuickSpec {
                 viewController?.users = MockData.users
                 viewController?.tableView(viewController!.usersTableView, didSelectRowAt: IndexPath(row: 0, section: 0))
                 expect(viewController?.presentedViewController)
-                    .toEventually(beAKindOf(UserDetailViewController.self), timeout: 5)
+                    .toEventually(beAKindOf(UserInformationViewController.self), timeout: 5)
             }
         }
     }

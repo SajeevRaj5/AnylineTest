@@ -63,6 +63,21 @@ extension UIView {
         }, completion: nil)
     }
     
+    func animateToTop(duration: CGFloat = 1.0, yPosition: CGFloat = 0) {
+        UIView.animate(withDuration: TimeInterval(duration), animations: {
+            self.frame = CGRect(x: self.frame.origin.x, y: yPosition, width: self.bounds.width, height: self.bounds.height)
+            self.setTop(to: yPosition)
+        })
+    }
+    
+    func setTop(to top: CGFloat = 0) {
+        
+        guard let superView = superview else { return }
+        let constraints = [ topAnchor.constraint(equalTo: superView.topAnchor, constant: top)]
+        NSLayoutConstraint.activate(constraints)
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     enum AnimationDirection {
         case bottom
         case top
