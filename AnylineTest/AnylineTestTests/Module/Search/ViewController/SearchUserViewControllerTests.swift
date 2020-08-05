@@ -71,21 +71,3 @@ class SearchUserViewControllerTests: QuickSpec {
     }
 }
 
-class MockData {
-    static let users = MockUser.getMockUsers()
-}
-
-class MockUser: User {
-    static func getMockUsers() -> [User] {
-        let jsonData = Data("""
-        {
-          "login" : "Test Name",
-          "score" : 1,
-          "avatar_url" : "https://www.googlr.com"
-        }
-""".utf8)
-
-        let user = try! JSONDecoder().decode(User.self, from: jsonData)
-        return [user,user,user]
-    }
-}

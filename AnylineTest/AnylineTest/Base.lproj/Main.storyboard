@@ -301,7 +301,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Fz-IQ-pUb" customClass="View" customModule="AnylineTest" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="5" width="394" height="89"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lAh-LI-eBe">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="lAh-LI-eBe">
                                                             <rect key="frame" x="15" y="16" width="65" height="57"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="65" id="Oz2-nl-ahc"/>
@@ -392,4 +392,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="avatarIcon" width="50" height="50"/>
+    </resources>
 </document>

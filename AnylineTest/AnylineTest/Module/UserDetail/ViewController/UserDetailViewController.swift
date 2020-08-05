@@ -9,14 +9,9 @@
 import UIKit
 
 class UserDetailViewController: UIViewController, ActivityIndicatorPresenter {
-    var activityIndicator = UIActivityIndicatorView()
-
-    var username: String? {
-        didSet {
-            getProfileDetails(username: username ?? "")
-        }
-    }
     
+    var activityIndicator = UIActivityIndicatorView()
+    var username: String?
     var profile: Profile? {
         didSet {
             updateView()
@@ -29,6 +24,11 @@ class UserDetailViewController: UIViewController, ActivityIndicatorPresenter {
     @IBOutlet weak var nameLabel: UILabel?
     @IBOutlet weak var avatarImageView: UIImageView?
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getProfileDetails(username: username)
+    }
+        
     func updateView() {
         locationLabel.text = profile?.location
         nameLabel?.text = profile?.name
@@ -43,12 +43,12 @@ class UserDetailViewController: UIViewController, ActivityIndicatorPresenter {
         view.animateAllSubViews(direction: .left)
     }
     
-    func getProfileDetails(username: String) {
+    func getProfileDetails(username: String?) {
+        guard let username = username else { return }
         showLoader()
         Profile.getDetails(username: username) { [weak self] (response) in
             switch response {
             case .success(let result):
-                print(result)
                 DispatchQueue.main.async {
                     self?.profile = result
                 }
@@ -59,19 +59,9 @@ class UserDetailViewController: UIViewController, ActivityIndicatorPresenter {
             }
         }
     }
-    
-    @IBAction func followersButtonAction(_ sender: UIButton) {
-    }
-    
-    @IBAction func reposButtonAction(_ sender: UIButton) {
-    }
-    
+
     @IBAction func profileButtonAction(_ sender: UIButton) {
         guard let profileUrl = profile?.profileUrl else { return }
         UIApplication.shared.open(profileUrl)
     }
-    
-    @IBAction func eventsButtonAction(_ sender: UIButton) {
-    }
-
 }

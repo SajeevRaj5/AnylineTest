@@ -31,6 +31,7 @@
 		13E8D9A624D9B233003DDEB3 /* SearchUserViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8D9A524D9B233003DDEB3 /* SearchUserViewControllerTests.swift */; };
 		13E8D9A824D9E0A4003DDEB3 /* MockNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8D9A724D9E0A4003DDEB3 /* MockNavigationController.swift */; };
 		13E8D9AC24D9F3AE003DDEB3 /* UserDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8D9AB24D9F3AE003DDEB3 /* UserDetailViewControllerTests.swift */; };
+		13E8D9AF24D9F979003DDEB3 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8D9AE24D9F979003DDEB3 /* MockData.swift */; };
 		D80D4F00A2D7D45EE7988217 /* libPods-AnylineTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD517F090857DB1F21EB190 /* libPods-AnylineTestTests.a */; };
 		E0BE9DBC92D72B35CA6D0985 /* Pods_AnylineTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B053EA3249FA068B76ADE29 /* Pods_AnylineTest.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,7 @@
 		13E8D9A524D9B233003DDEB3 /* SearchUserViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewControllerTests.swift; sourceTree = "<group>"; };
 		13E8D9A724D9E0A4003DDEB3 /* MockNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationController.swift; sourceTree = "<group>"; };
 		13E8D9AB24D9F3AE003DDEB3 /* UserDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		13E8D9AE24D9F979003DDEB3 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		158C1D40B5453FFA2D129C3B /* Pods-AnylineTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnylineTestTests.release.xcconfig"; path = "Target Support Files/Pods-AnylineTestTests/Pods-AnylineTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		1FD517F090857DB1F21EB190 /* libPods-AnylineTestTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AnylineTestTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B053EA3249FA068B76ADE29 /* Pods_AnylineTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnylineTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,6 +243,7 @@
 		13E8D99824D991E6003DDEB3 /* AnylineTestTests */ = {
 			isa = PBXGroup;
 			children = (
+				13E8D9AD24D9F961003DDEB3 /* Mock */,
 				13E8D9A124D9B1FE003DDEB3 /* Module */,
 				13E8D99924D991E6003DDEB3 /* AnylineTestTests.swift */,
 				13E8D99B24D991E7003DDEB3 /* Info.plist */,
@@ -253,7 +256,6 @@
 			children = (
 				13E8D9A924D9F361003DDEB3 /* UserDetail */,
 				13E8D9A224D9B204003DDEB3 /* Search */,
-				13E8D9A724D9E0A4003DDEB3 /* MockNavigationController.swift */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -296,6 +298,15 @@
 				13E8D9AB24D9F3AE003DDEB3 /* UserDetailViewControllerTests.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		13E8D9AD24D9F961003DDEB3 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				13E8D9A724D9E0A4003DDEB3 /* MockNavigationController.swift */,
+				13E8D9AE24D9F979003DDEB3 /* MockData.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		4F65849907C28D3E511D8A58 /* Frameworks */ = {
@@ -496,6 +507,7 @@
 				13E8D9A624D9B233003DDEB3 /* SearchUserViewControllerTests.swift in Sources */,
 				13E8D9AC24D9F3AE003DDEB3 /* UserDetailViewControllerTests.swift in Sources */,
 				13E8D9A824D9E0A4003DDEB3 /* MockNavigationController.swift in Sources */,
+				13E8D9AF24D9F979003DDEB3 /* MockData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
