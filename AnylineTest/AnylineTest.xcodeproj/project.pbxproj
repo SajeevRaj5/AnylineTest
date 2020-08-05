@@ -31,6 +31,8 @@
 		13E8D9AF24D9F979003DDEB3 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8D9AE24D9F979003DDEB3 /* MockData.swift */; };
 		13E8D9B124DB04E2003DDEB3 /* UserInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8D9B024DB04E2003DDEB3 /* UserInformationViewController.swift */; };
 		13E8D9B524DB2683003DDEB3 /* UserInformationViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8D9B424DB2683003DDEB3 /* UserInformationViewControllerTests.swift */; };
+		13E8D9B724DB4456003DDEB3 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8D9B624DB4456003DDEB3 /* AlertController.swift */; };
+		13E8D9BA24DB462A003DDEB3 /* AlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8D9B924DB462A003DDEB3 /* AlertControllerTests.swift */; };
 		D80D4F00A2D7D45EE7988217 /* libPods-AnylineTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD517F090857DB1F21EB190 /* libPods-AnylineTestTests.a */; };
 		E0BE9DBC92D72B35CA6D0985 /* Pods_AnylineTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B053EA3249FA068B76ADE29 /* Pods_AnylineTest.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,8 @@
 		13E8D9AE24D9F979003DDEB3 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		13E8D9B024DB04E2003DDEB3 /* UserInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationViewController.swift; sourceTree = "<group>"; };
 		13E8D9B424DB2683003DDEB3 /* UserInformationViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationViewControllerTests.swift; sourceTree = "<group>"; };
+		13E8D9B624DB4456003DDEB3 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		13E8D9B924DB462A003DDEB3 /* AlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerTests.swift; sourceTree = "<group>"; };
 		158C1D40B5453FFA2D129C3B /* Pods-AnylineTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnylineTestTests.release.xcconfig"; path = "Target Support Files/Pods-AnylineTestTests/Pods-AnylineTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		1FD517F090857DB1F21EB190 /* libPods-AnylineTestTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AnylineTestTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B053EA3249FA068B76ADE29 /* Pods_AnylineTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnylineTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +212,7 @@
 				137DB42824D978D400684567 /* View.swift */,
 				133C654624D97CAA00BF456E /* TableViewExtension.swift */,
 				133C654824D98E5600BF456E /* ActivityIndicator.swift */,
+				13E8D9B624DB4456003DDEB3 /* AlertController.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 		13E8D99824D991E6003DDEB3 /* AnylineTestTests */ = {
 			isa = PBXGroup;
 			children = (
+				13E8D9B824DB4619003DDEB3 /* Helper */,
 				13E8D9AD24D9F961003DDEB3 /* Mock */,
 				13E8D9A124D9B1FE003DDEB3 /* Module */,
 				13E8D99924D991E6003DDEB3 /* AnylineTestTests.swift */,
@@ -304,6 +310,14 @@
 				13E8D9AE24D9F979003DDEB3 /* MockData.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		13E8D9B824DB4619003DDEB3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				13E8D9B924DB462A003DDEB3 /* AlertControllerTests.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		4F65849907C28D3E511D8A58 /* Frameworks */ = {
@@ -484,6 +498,7 @@
 				137DB3EC24D8979600684567 /* AppDelegate.swift in Sources */,
 				137DB41E24D8ADBF00684567 /* ResponderExtension.swift in Sources */,
 				137DB42024D8AEF600684567 /* URLExtension.swift in Sources */,
+				13E8D9B724DB4456003DDEB3 /* AlertController.swift in Sources */,
 				137DB3EE24D8979600684567 /* SceneDelegate.swift in Sources */,
 				137DB41624D8AB5700684567 /* SearchUserViewController.swift in Sources */,
 				137DB41924D8ABFB00684567 /* UserViewCell.swift in Sources */,
@@ -499,6 +514,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13E8D9BA24DB462A003DDEB3 /* AlertControllerTests.swift in Sources */,
 				13E8D99A24D991E7003DDEB3 /* AnylineTestTests.swift in Sources */,
 				13E8D9A624D9B233003DDEB3 /* SearchUserViewControllerTests.swift in Sources */,
 				13E8D9A824D9E0A4003DDEB3 /* MockNavigationController.swift in Sources */,

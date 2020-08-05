@@ -37,7 +37,9 @@ class SearchUserViewController: UIViewController, ActivityIndicatorPresenter {
         User.search(text: text, page: pageIndex) { [weak self] (response) in
             switch response {
             case .success(let data): completion?(data.items)
-            case .failure(_): completion?(nil)
+            case .failure(let error):
+                AlertController.show(type: .serviceError, error: error)
+                completion?(nil)
             case .finally: self?.hideLoader()
             }
         }
@@ -45,11 +47,11 @@ class SearchUserViewController: UIViewController, ActivityIndicatorPresenter {
     
     func search(text: String) {
         getUsers(text: text) { [weak self] newUserList in
-            guard let newUserList = newUserList else {
-                //show Alert
-                return
-            }
+            guard let newUserList = newUserList else { return }
             self?.users += newUserList
+            if self?.users.isEmpty ?? true {
+                AlertController.show(type: .empty)
+            }
         }
     }
     
