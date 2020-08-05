@@ -14,7 +14,13 @@ class SearchUserViewController: UIViewController, ActivityIndicatorPresenter {
     var pageIndex = 1
     var searchText = ""
     
-    var users = [User]()
+    var users = [User]() {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.reloadList()
+            }
+        }
+    }
 
     @IBOutlet weak var usersTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -25,27 +31,35 @@ class SearchUserViewController: UIViewController, ActivityIndicatorPresenter {
         title = "Search Users"
     }
 
-    // search users with text
-    func getUsers(text: String, index: Int = 1) {
+    // search users with text.
+    func getUsers(text: String, completion:  (([User]?) -> Void)?) {
         showLoader()
         User.search(text: text, page: pageIndex) { [weak self] (response) in
             switch response {
-            case .success(let data):
-                self?.users += data.items
-                DispatchQueue.main.async {
-                    self?.reloadList()
-                }
-            case .failure(let error):
-                print(error)
-            case .finally:
-                self?.hideLoader()
+            case .success(let data): completion?(data.items)
+            case .failure(_): completion?(nil)
+            case .finally: self?.hideLoader()
             }
         }
     }
     
+    func search(text: String) {
+        getUsers(text: text) { [weak self] newUserList in
+            guard let newUserList = newUserList else {
+                //show Alert
+                return
+            }
+            self?.users += newUserList
+        }
+    }
+    
     func reloadList() {
-        usersTableView.reloadData()
-        usersTableView.animateCells(direction: .bottom)
+        usersTableView?.reloadData()
+        usersTableView?.animateCells(direction: .bottom)
+    }
+    
+    func resetList() {
+        users.removeAll()
     }
 }
 
@@ -60,7 +74,7 @@ extension SearchUserViewController: UITableViewDataSource {
         
         if indexPath.row == users.count - 2 {
             pageIndex += 1
-            getUsers(text: searchText, index: pageIndex)
+            search(text: searchText)
         }
         
         return userCell
@@ -74,14 +88,17 @@ extension SearchUserViewController: UITableViewDelegate {
         detailsView.username = users[indexPath.row].username
         present(detailsView, animated: true, completion: nil)
     }
-
 }
 
 extension SearchUserViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchText = searchBar.searchTextField.text ?? ""
-
-        getUsers(text: searchText)
-        searchBar.searchTextField.resignFirstResponder()
+        resetList()
+        search(text: searchText)
+        view.endEditing(true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
     }
 }
