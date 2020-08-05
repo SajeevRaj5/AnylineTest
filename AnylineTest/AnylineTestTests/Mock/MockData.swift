@@ -32,15 +32,15 @@ class MockUser: User {
     static func getMockProfile() -> Profile {
         let jsonData = Data("""
             {
-            "login" : "Test Name",
-            "name" : "Test Full Name",
-            "avatar_url" : "https://www.googlr.com",
-            "followers" : "1",
-            "following" : "2",
-            "location" : "4",
-            "html_url" : "https://www.googlr.com"
+            "login": "Test Name",
+            "name": "Test Full Name",
+            "avatar_url": "https://www.googlr.com",
+            "followers": 1,
+            "following": 2,
+            "location": "4",
+            "html_url": "https://www.googlr.com"
             }
-            """.utf8)
+""".utf8)
         let profile = try! JSONDecoder().decode(Profile.self, from: jsonData)
         return profile
     }
